@@ -8,6 +8,14 @@ Yeoman on the other hand is excellent framework for packaging and doing all sort
 This project triggers a yeoman build from within a gradle build file. The gradle build fails
 if any of the testacular javascript tests fail. Result.
 
+## Prerequisites ##
+install yeoman
+
+curl -L get.yeoman.io | bash
+
+Install all the required frameworks it recommends
+
+
 ## Build & Run ##
 
 $ cd thisstrangecity
