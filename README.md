@@ -1,6 +1,6 @@
 # This Strange City #
 
-thisstrangecity is a template project that sets up a gradle environmenta
+thisstrangecity is a template project that sets up a gradle environment
 
 Gradle is a pretty cool build tool for implementing jvm based applications.
 Yeoman on the other hand is excellent framework for packaging and doing all sorts of sexy stuff for front end work.
