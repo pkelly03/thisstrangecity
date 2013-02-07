@@ -1,6 +1,6 @@
-# Yeomangradle #
+# This Strange City #
 
-yeomangradle is a template project that sets up a gradle environmenta
+thisstrangecity is a template project that sets up a gradle environmenta
 
 Gradle is a pretty cool build tool for implementing jvm based applications.
 Yeoman on the other hand is excellent framework for packaging and doing all sorts of sexy stuff for front end work.
@@ -10,7 +10,7 @@ if any of the testacular javascript tests fail. Result.
 
 ## Build & Run ##
 
-$ cd yeomangradle
+$ cd thisstrangecity
 $ gradle everything
 
 This should spawn up an instance of the server or complain if any compilation or test failures.
