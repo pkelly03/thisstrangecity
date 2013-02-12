@@ -1,13 +1,15 @@
-'use strict';
+(function() {
+  'use strict';
 
-var yeomangradleApp = angular.module('yeomangradleApp', [])
-  .config(['$routeProvider', function($routeProvider) {
-    $routeProvider
-      .when('/', {
+  angular.module('webUiApp', []).config([
+    '$routeProvider', function($routeProvider) {
+      return $routeProvider.when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .otherwise({
+      }).otherwise({
         redirectTo: '/'
       });
-  }]);
+    }
+  ]);
+
+}).call(this);
