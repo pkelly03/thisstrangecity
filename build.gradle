@@ -1,4 +1,26 @@
+apply plugin: 'java'
+apply from: 'external-dependencies.gradle'
+apply from: 'ide-support.gradle'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    sourceCompatibility = '1.7'
+    targetCompatibility = '1.7'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath rootProject.fileTree('gradle-plugins')
+    }
+}
+
 task everything(type: GradleBuild) {
-    description = 'Builds everything'
-    tasks = ['build', 'jstest']
+    description = 'Build Everything'
+    tasks = ['build', 'jstest', 'localDeploy']
 }

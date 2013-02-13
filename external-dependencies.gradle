@@ -1,0 +1,63 @@
+def springVersion = "3.1.2.RELEASE"
+def tomcatVersion = "7.0.30"
+def jerseyVersion = "1.14"
+def cargoVersion = '1.2.4'
+
+ext {
+    apacheHttpClient = "org.apache.httpcomponents:httpclient:4.2.1"
+
+    apacheCommonsIo = "commons-io:commons-io:2.0.1"
+
+    jacksonJaxRs = "org.codehaus.jackson:jackson-jaxrs:1.9.9"
+
+    scala = [
+            library: "org.scala-lang:scala-library:2.9.2",
+            compiler: "org.scala-lang:scala-compiler:2.9.2"
+    ]
+
+    javax = [
+            servlet: [
+                    servletApi : "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion",
+                    jspApi : "org.apache.tomcat:tomcat-jsp-api:$tomcatVersion",
+                    jstl : "javax.servlet:jstl:1.2"
+            ]
+    ]
+
+    jersey = [
+            core : "com.sun.jersey:jersey-core:$jerseyVersion",
+            server: [
+                    "com.sun.jersey:jersey-server:$jerseyVersion",
+                    "com.sun.jersey:jersey-servlet:$jerseyVersion"
+            ],
+            spring: "com.sun.jersey.contribs:jersey-spring:$jerseyVersion",
+            client : "com.sun.jersey:jersey-client:$jerseyVersion",
+    ]
+
+    spring = [
+            web: "org.springframework:spring-web:${springVersion}",
+    ]
+
+
+
+    ///////////////////////////////
+    // DEPLOYMENT DEPENDENCIES
+    ///////////////////////////////
+    cargo = ["org.codehaus.cargo:cargo-core-uberjar:$cargoVersion", "org.codehaus.cargo:cargo-ant:$cargoVersion"]
+
+    ///////////////////////
+    // TEST DEPENDENCIES
+    ///////////////////////
+
+    jersey += [
+            tests: [
+                    "com.sun.jersey.jersey-test-framework:jersey-test-framework-core:$jerseyVersion",
+                    "com.sun.jersey.jersey-test-framework:jersey-test-framework-inmemory:$jerseyVersion",
+                    jersey.client
+            ]
+    ]
+
+    junit = "junit:junit:4.10"
+
+    scalatest = "org.scalatest:scalatest_2.9.2:1.6.1"
+
+}

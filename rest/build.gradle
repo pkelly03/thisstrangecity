@@ -1,15 +1,10 @@
-apply plugin: 'eclipse'
 apply plugin: 'scala'
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'war'
+apply from: rootProject.file('deployment-support.gradle')
 
 dependencies {
-    compile 'org.scala-lang:scala-library:2.9.1'
-}
-
-dependencies {
-    compile 'commons-collections:commons-collections:3.2'
-    testCompile 'junit:junit:4.11'
+    providedCompile javax.servlet.servletApi
+    compile scala.library, scala.compiler
+    compile jersey.core, jersey.server, jersey.spring, jersey.client, jacksonJaxRs, spring.web
+    testCompile junit, scalatest
 }

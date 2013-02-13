@@ -1,0 +1,51 @@
+allprojects {
+    apply plugin: 'idea'
+}
+
+/*
+subprojects {
+    apply plugin: 'eclipse'
+    idea.module {
+        beforeConfigured { module ->
+            module.dependencies.clear()
+        }
+    }
+}
+*/
+
+idea.project {
+    ipr.withXml { provider ->
+        def vcsMappings = [Git: "git status", svn: "svn info", hg4idea: "hg status"]
+        def vcs = vcsMappings.find {
+            try {
+                it.value.execute(null, rootProject.projectDir).waitFor() == 0
+            } catch (Exception ignore) {
+                return false
+            }
+        }
+
+        if (vcs) {
+            def vcsConfig = provider.asNode().component.find { it.'@name' == 'VcsDirectoryMappings' }
+            vcsConfig.mapping[0].'@vcs' = vcs.key
+            vcsConfig.mapping[0].'@directory' = '$PROJECT_DIR$/..' //for this project only
+        }
+    }
+}
+
+idea.workspace {
+    iws.withXml { provider ->
+        def runManagerComponent = provider.asNode().component.find { it.'@name' == 'RunManager'}
+        def defaultJunitConfig = runManagerComponent.configuration.find {(it.'@default' == 'true') && (it.'@type' == 'JUnit')}
+        defaultJunitConfig.option.find {it.'@name' == 'WORKING_DIRECTORY'}.'@value' = '$MODULE_DIR$'
+        if (System.getenv('JAVA_OPTS')) {
+            defaultJunitConfig.option.find {it.'@name' == 'VM_PARAMETERS'}.'@value' = System.getenv('JAVA_OPTS')
+        } else {
+            println("**** JAVA_OPTS not set *****")
+            println("Consider adding \"JAVA_OPTS='-Xms2048m -Xrs -XX:MaxPermSize=512m'\" to /etc/environment.")
+            sleep(5000)
+        }
+
+        def defaultTestNGConfig = runManagerComponent.appendNode('configuration', [default: 'true', type: 'TestNG', factoryName: 'TestNG'])
+        defaultTestNGConfig.appendNode('option', [name: 'WORKING_DIRECTORY', value: '$MODULE_DIR$'])
+    }
+}

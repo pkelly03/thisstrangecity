@@ -1,0 +1,23 @@
+/*
+ Gradle cargo plugin obtained from: https://github.com/bmuschko/gradle-cargo-plugin
+ */
+apply plugin: 'cargo'
+
+dependencies {
+    cargo cargo
+}
+
+cargo {
+    containerId = 'tomcat7x'
+    remote {
+        hostname = 'localhost'
+        username = 'admin'
+        password = 'admin'
+    }
+}
+
+task localDeploy {
+    description = "Deploy project to local servlet container."
+    group = "Deployment"
+    dependsOn('cargoRedeployRemote')
+}
