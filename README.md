@@ -25,6 +25,8 @@ Install all the required frameworks it recommends
 
 ## Build & Run ##
 
+Start catalina - catalina run
+
 $ cd thisstrangecity
 $ gradle everything
 
