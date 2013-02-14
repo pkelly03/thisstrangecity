@@ -13,6 +13,13 @@ install yeoman
 
 curl -L get.yeoman.io | bash
 
+This does a health check on your system to see if you have all required programs installed.
+Install anything it finds missing. It gives you instructions on how to do this.
+
+Because we use angular on this project, you will need to install testacular
+
+npm install testacular
+
 Install all the required frameworks it recommends
 
 
