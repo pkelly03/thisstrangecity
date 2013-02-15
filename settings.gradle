@@ -1,2 +1,3 @@
 include "web-ui"
 include "rest"
+include "acceptances-test"

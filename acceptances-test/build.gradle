@@ -1,0 +1,35 @@
+apply plugin: 'scala'
+
+
+dependencies {
+    compile scala.library, scala.compiler
+    testCompile junit, scalatest
+}
+
+sourceSets {
+    main {
+        scala {
+            srcDirs = ['src/main/java', 'src/main/scala']
+        }
+    }
+    test {
+        scala {
+            srcDirs = ['src/test/java', 'src/test/scala']
+        }
+    }
+}
+
+
+test {
+    ant.taskdef(name: 'scalatest',
+            classname: 'org.scalatest.tools.ScalaTestAntTask',
+            classpath: classpath.asPath)
+}
+
+test << {
+    ant.scalatest(runpath: sourceSets.test.output.asPath,
+            haltonfailure: 'true',
+            fork: 'false') {
+        reporter(type: 'stderr')
+    }
+}

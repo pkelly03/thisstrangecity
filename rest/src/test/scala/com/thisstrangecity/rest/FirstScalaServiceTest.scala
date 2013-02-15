@@ -2,6 +2,7 @@ package com.thisstrangecity.rest
 
 import org.scalatest.FunSuite
 
+
 class FirstScalaServiceTest extends FunSuite {
 
   test("getSomeThing should return Hi") {
