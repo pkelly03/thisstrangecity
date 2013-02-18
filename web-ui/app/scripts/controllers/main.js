@@ -1,8 +1,10 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular.module('webUiApp').controller('MainCtrl', function($scope) {
-    return $scope.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Testacular'];
+angular.module('webUiApp')
+  .controller('MainCtrl', function ($scope) {
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Testacular'
+    ];
   });
-
-}).call(this);
