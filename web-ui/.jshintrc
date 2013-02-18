@@ -1,0 +1,10 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "quotmark": "single",
+  "regexp": true,
+  "unused": true,
+  "smarttabs": true
+}

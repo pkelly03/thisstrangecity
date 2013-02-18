@@ -1,7 +1,7 @@
-(function() {
+(function () {
   'use strict';
 
-  describe('Controller: ListPlacesCtrl', function() {
+  describe('Controller: ListPlacesCtrl', function () {
     var ListPlacesCtrl, scope;
     beforeEach(module('webUiApp'));
     ListPlacesCtrl = {};
@@ -12,7 +12,7 @@
         $scope: scope
       });
     }));
-    return it('should attach a list of awesomeThings to the scope', function() {
+    return it('should attach a list of awesomeThings to the scope', function () {
       return expect(scope.awesomeThings.length).toBe(3);
     });
   });
