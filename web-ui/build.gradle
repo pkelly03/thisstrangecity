@@ -1,7 +1,7 @@
 task jstest(type: Exec) {
-    commandLine 'yeoman', 'build', 'test'
+    commandLine 'grunt'
 }
 
 task server(type: Exec) {
-  commandLine 'yeoman', 'server'
+  commandLine 'grunt', 'server'
 }
