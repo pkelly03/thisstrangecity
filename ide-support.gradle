@@ -27,7 +27,7 @@ idea.project {
         if (vcs) {
             def vcsConfig = provider.asNode().component.find { it.'@name' == 'VcsDirectoryMappings' }
             vcsConfig.mapping[0].'@vcs' = vcs.key
-            vcsConfig.mapping[0].'@directory' = '$PROJECT_DIR$/..' //for this project only
+            vcsConfig.mapping[0].'@directory' = '$PROJECT_DIR$' //for this project only
         }
     }
 }
