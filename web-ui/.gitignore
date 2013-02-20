@@ -3,3 +3,15 @@ dist
 .tmp
 .sass-cache
 app/components
+../.idea/encodings.xml
+../.idea/libraries
+../.idea/misc.xml
+../.idea/modules.xml
+../.idea/scopes
+../.idea/thisstrangecity.iml
+../.idea/vcs.xml
+../.idea/workspace.xml
+../npm-debug.log
+.bowerrc
+.editorconfig
+.gitattributes

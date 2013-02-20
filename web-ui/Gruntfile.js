@@ -185,11 +185,6 @@ module.exports = function (grunt) {
         }]
       }
     },
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
-      }
-    },
     copy: {
       dist: {
         files: [{
@@ -230,7 +225,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'jshint',
     'test',
     'coffee',
     'compass:dist',
@@ -240,7 +234,6 @@ module.exports = function (grunt) {
     'htmlmin',
     'concat',
     'copy',
-    'cdnify',
     'usemin'
   ]);
 
