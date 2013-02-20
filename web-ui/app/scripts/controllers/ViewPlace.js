@@ -1,8 +1,5 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular.module('webUiApp').controller('ViewPlaceCtrl', function($scope) {
+angular.module('webUiApp').controller('ViewPlaceCtrl', function($scope) {
     return $scope.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Testacular'];
-  });
-
-}).call(this);
+});
