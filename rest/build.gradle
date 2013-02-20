@@ -1,8 +1,10 @@
 apply plugin: 'scala'
+apply plugin: 'idea-scala-facet'
 apply plugin: 'war'
 apply from: rootProject.file('deployment-support.gradle')
 
 dependencies {
+    scalaApi scala.library
     providedCompile javax.servlet.servletApi
     compile scala.library, scala.compiler
     compile jersey.core, jersey.server, jersey.spring, jersey.client, jacksonJaxRs, spring.web
