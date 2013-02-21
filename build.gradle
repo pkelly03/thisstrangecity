@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply from: 'external-dependencies.gradle'
 apply from: 'ide-support.gradle'
+apply plugin: 'idea-scala-project'
 
 allprojects {
     repositories {
@@ -18,6 +19,11 @@ buildscript {
     dependencies {
         classpath rootProject.fileTree('gradle-plugins')
     }
+}
+
+dependencies {
+    scalaTools scala.compiler, scala.library
+    scalaApi scala.library
 }
 
 task everything(type: GradleBuild) {

@@ -1,5 +1,8 @@
+*.iml
+*.ipr
+*.iws
+.idea/
 .gradle
 build
-rest/build
-.idea/
 npm-debug.log
+out
