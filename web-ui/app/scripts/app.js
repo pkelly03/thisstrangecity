@@ -1,6 +1,9 @@
 'use strict';
+var app = angular.module('webUiApp',['ngResource']);
 
-angular.module('webUiApp', []).config([
+app.constant('apiKey', 'aKe_m6K7U-MLQqOWlVo3VNhY2aKuppEW');
+
+app.config([
     '$routeProvider', function($routeProvider) {
         return $routeProvider.when('/', {
             templateUrl: 'views/ListPlaces.html',
