@@ -11,7 +11,7 @@ describe('Controller: ListPlacesCtrl', function () {
             $scope:scope
         });
     }));
-    return it('should attach a list of awesomeThings to the scope', function () {
+    return it('should make a call to ListCoolPlacesService to retrieve list of cool places', function () {
         return expect(scope.awesomeThings.length).toBe(3);
     });
 });
