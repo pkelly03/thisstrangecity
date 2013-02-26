@@ -1,7 +1,7 @@
 'use strict';
 var app = angular.module('webUiApp',['ngResource']);
 
-app.constant('apiKey', 'aKe_m6K7U-MLQqOWlVo3VNhY2aKuppEW');
+app.constant('API_KEY', 'aKe_m6K7U-MLQqOWlVo3VNhY2aKuppEW');
 
 app.config([
     '$routeProvider', function($routeProvider) {
