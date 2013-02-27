@@ -1,5 +1,5 @@
 'use strict';
 
-app.controller('ViewPlaceCtrl', function($scope) {
+app.controller('ViewPlaceController', function($scope) {
     return $scope.awesomeThings = [];
 });

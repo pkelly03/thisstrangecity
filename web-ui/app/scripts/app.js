@@ -5,16 +5,20 @@ app.constant('API_KEY', 'aKe_m6K7U-MLQqOWlVo3VNhY2aKuppEW');
 
 app.config([
     '$routeProvider', function($routeProvider) {
-        return $routeProvider.when('/', {
-            templateUrl: 'views/ListPlaces.html',
-            controller: 'ListPlacesCtrl'
-        }).when('/ListPlaces', {
-                tempalteUrl: 'views/ListPlaces.html',
-                controller: 'ListPlacesCtrl'
-            }).when('/ViewPlace', {
-                tempalteUrl: 'views/ViewPlace.html',
-                controller: 'ViewPlaceCtrl'
-            }).otherwise({
+        return $routeProvider
+            .when('/', {
+                templateUrl: 'views/ListPlaces.html',
+                controller: 'ListPlacesController'
+            })
+            .when('/ListPlaces', {
+                templateUrl: 'views/ListPlaces.html',
+                controller: 'ListPlacesController'
+            })
+            .when('/ViewPlace', {
+                templateUrl: 'views/ViewPlace.html',
+                controller: 'ViewPlaceController'
+            })
+            .otherwise({
                 redirectTo: '/'
             });
     }

@@ -9,18 +9,18 @@ angular.module('appWithDummyService', ['ngResource'])
         };
     });
 
-describe('Controller: ListPlacesCtrl', function () {
+describe('Controller: ListPlacesController', function () {
 
     var $scope, controller;
 
-    // var  $httpBackend, ListPlacesCtrl;
+    // var  $httpBackend, ListPlacesController;
 
     beforeEach(module('webUiApp'));
     beforeEach(module('appWithDummyService'));
 
     beforeEach(inject(function($rootScope, $controller, ListCoolPlacesService) {
         $scope = $rootScope.$new();
-        controller = $controller('ListPlacesCtrl', {
+        controller = $controller('ListPlacesController', {
           $scope: $scope 
         });
     }));

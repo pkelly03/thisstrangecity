@@ -1,5 +1,5 @@
 'use strict';
 
-app.controller('ListPlacesCtrl', function($scope, ListCoolPlacesService) {
+app.controller('ListPlacesController', function($scope, ListCoolPlacesService) {
     $scope.coolPlacesList = ListCoolPlacesService.query();
 });

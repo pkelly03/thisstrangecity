@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Controller: ViewPlaceCtrl', function () {
-    var ViewPlaceCtrl, scope;
+describe('Controller: ViewPlaceController', function () {
+    var ViewPlaceController, scope;
     beforeEach(module('webUiApp'));
-    ViewPlaceCtrl = {};
+    ViewPlaceController = {};
     scope = {};
     beforeEach(inject(function ($controller) {
         scope = {};
-        return ViewPlaceCtrl = $controller('ViewPlaceCtrl', {
+        return ViewPlaceController = $controller('ViewPlaceController', {
             $scope:scope
         });
     }));
