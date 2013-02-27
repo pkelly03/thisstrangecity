@@ -6,7 +6,5 @@ app.factory('ListCoolPlacesService', function($resource, API_KEY) {
         apiKey: API_KEY
     });
 
-//    ListCoolPlacesService.prototype.done = false;
-
     return ListCoolPlacesService;
 });
