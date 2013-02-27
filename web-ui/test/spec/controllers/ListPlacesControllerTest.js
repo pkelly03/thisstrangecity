@@ -1,24 +1,31 @@
 'use strict';
+angular.module('appWithDummyService', ['ngResource'])
+    .constant('API_KEY', 'testkey')
+    .factory('ListCoolPlacesService', function($resource, API_KEY) {
+        return {
+            query: function() {
+                return [{name: "Look Mum No Hands", location: "Old St"},{name: "Modern Pantry", location: "Clerkenwell"}];
+            }
+        };
+    });
 
 describe('Controller: ListPlacesCtrl', function () {
-    var  $httpBackend, ListPlacesCtrl;
+
+    var $scope, controller;
+
+    // var  $httpBackend, ListPlacesCtrl;
 
     beforeEach(module('webUiApp'));
-    beforeEach(inject(function($injector, $rootScope) {
-        $httpBackend = $injector.get('$httpBackend');
+    beforeEach(module('appWithDummyService'));
+
+    beforeEach(inject(function($rootScope, $controller, ListCoolPlacesService) {
+        $scope = $rootScope.$new();
+        controller = $controller('ListPlacesCtrl', {
+          $scope: $scope 
+        });
     }));
 
-    xit('should expose query result in scope', inject(function($rootScope, $controller, ListCoolPlacesService) {
-
-        $httpBackend.expect('GET', 'https://api.mongolab.com/api/1/databases/coolplaces/collections/coolplaces/').respond(["one", "two"]);
-        var scope = $rootScope.$new();
-
-        var ctrl = $controller( ListPlacesCtrl, {
-            $scope: scope,
-            ListCoolPlacesService: ListCoolPlacesService
-        });
-
-        $httpBackend.flush();
-        expect(scope.result.length).toEqual(2);
+    it('should make a call to ListCoolPlacesService and copy value to coolPlacesList', inject(function (ListCoolPlacesService) {
+        expect($scope.coolPlacesList.length).toEqual(2);
     }));
 });
