@@ -1,5 +1,5 @@
 'use strict';
-describe('Service: ListCoolPlacesService', function () {
+describe('Service: PlacesService', function () {
 
     var $httpBackend;
     var createUrl = function () {
@@ -11,15 +11,21 @@ describe('Service: ListCoolPlacesService', function () {
         $httpBackend = $injector.get('$httpBackend');
     }));
 
-    it('should call all', inject(function (ListCoolPlacesService) {
+    it('should call retrieve all cool places', inject(function (PlacesService) {
         $httpBackend.expect('GET', createUrl())
             .respond([{name: "Look Mum No Hands", location: "Old St"},{name: "Modern Pantry", location: "Clerkenwell"}]);
 
-        var result = ListCoolPlacesService.query();
+        var result = PlacesService.query();
         $httpBackend.flush();
 
         expect(result[0].name).toEqual('Look Mum No Hands');
         expect(result[0].location).toEqual('Old St');
     }));
+
+    it('should retrieve a cool place given a valid id', function() {
+        $httpBackend.expect('GET', createUrl())
+            .respond([{name: "Look Mum No Hands", location: "Old St"},{name: "Modern Pantry", location: "Clerkenwell"}]);
+
+    });
 
 });

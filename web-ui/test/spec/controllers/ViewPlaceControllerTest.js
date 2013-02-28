@@ -12,7 +12,7 @@ describe('Controller: ViewPlaceController', function () {
         });
     }));
 
-    xit('should attach a list of awesomeThings to the scope', function () {
+    xit('should return details of a cool place for viewing', function () {
         return expect(scope.awesomeThings.length).toBe(3);
     });
 });
