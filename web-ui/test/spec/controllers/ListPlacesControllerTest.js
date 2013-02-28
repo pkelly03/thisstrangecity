@@ -14,16 +14,14 @@ angular.module('appWithDummyService', ['ngResource'])
 
 describe('Controller: ListPlacesController', function () {
 
-    var $scope, controller;
-
-    // var  $httpBackend, ListPlacesController;
+    var $scope, ListPlacesController;
 
     beforeEach(module('webUiApp'));
     beforeEach(module('appWithDummyService'));
 
     beforeEach(inject(function($rootScope, $controller, PlacesService) {
         $scope = $rootScope.$new();
-        controller = $controller('ListPlacesController', {
+        ListPlacesController = $controller('ListPlacesController', {
           $scope: $scope 
         });
     }));
