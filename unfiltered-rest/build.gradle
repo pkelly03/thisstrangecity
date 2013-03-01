@@ -1,0 +1,14 @@
+apply plugin: 'scala'
+apply plugin: 'idea-scala-facet'
+apply plugin: 'war'
+apply from: rootProject.file('deployment-support.gradle')
+
+dependencies {
+    scalaApi scala.library
+    providedCompile javax.servlet.servletApi
+    compile scala.library, scala.compiler
+    compile unfiltered.core, unfiltered.filter, unfiltered.dispatch, unfiltered.netty, unfiltered.json, unfiltered.lift_json
+    compile mongoDb.java, mongoDb.casbah, jodaTime
+    testCompile junit, scalatest, jersey.tests
+    compile commons.collections
+}

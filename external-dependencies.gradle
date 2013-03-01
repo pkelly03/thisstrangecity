@@ -41,7 +41,21 @@ ext {
             web: "org.springframework:spring-web:${springVersion}",
     ]
 
+    unfiltered = [
+            core: 'net.databinder:unfiltered_2.9.2:0.6.5',
+            filter: 'net.databinder:unfiltered-filter_2.9.2:0.6.5',
+            netty: 'net.databinder:unfiltered-netty-server_2.9.2:0.6.5',
+            json: 'net.databinder:unfiltered-json_2.9.2:0.6.5',
+            lift_json: 'net.liftweb:lift-json_2.9.2:2.5-M4',
+            dispatch: 'net.databinder:dispatch-core_2.9.2:0.8.9'
+    ]
 
+
+    mongoDb = [
+            casbah:'org.mongodb:casbah:2.5.0'
+            ]
+
+    jodaTime = 'joda-time:joda-time:2.1'
 
     ///////////////////////////////
     // DEPLOYMENT DEPENDENCIES
