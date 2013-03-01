@@ -1,1 +1,18 @@
-<p>This is the ListPlaces view.</p>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <a ng-click="details.show=!details.show" href="#/ViewPlace/{{coolPlace.name}}" ng-repeat="coolPlace in coolPlacesList">{{coolPlace.name}}<br/></a>
+
+    <tr ng-repeat="coolPlace in coolPlacesList">
+        <td><a href="#/ViewPlace">{{coolPlace.name}}</a></td>
+        <td><a href="">{{coolPlace.location}}</a></td>A
+    </tr>
+    </tbody>
+</table>
+

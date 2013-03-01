@@ -2,6 +2,7 @@ def springVersion = "3.1.2.RELEASE"
 def tomcatVersion = "7.0.30"
 def jerseyVersion = "1.14"
 def cargoVersion = '1.2.4'
+def seleniumVersion = "2.30.0"
 
 ext {
     apacheHttpClient = "org.apache.httpcomponents:httpclient:4.2.1"
@@ -75,6 +76,10 @@ ext {
     ]
 
     junit = "junit:junit:4.10"
+
+    selenium = "org.seleniumhq.selenium:selenium-server:$seleniumVersion"
+
+    testng = "org.testng:testng:6.8"
 
     scalatest = "org.scalatest:scalatest_2.9.2:1.6.1"
 

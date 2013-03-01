@@ -1,0 +1,39 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../components/jasmine/jasmine.css"/>
+
+    <script type="text/javascript" src="../components/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="../components/jasmine/jasmine-html.js"></script>
+    <script type="text/javascript" src="../components/angular/angular.js"></script>
+    <script type="text/javascript" src="../components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="../components/angular-mocks/angular-mocks.js"></script>
+
+    <script type="text/javascript" src="../app/scripts/app.js"></script>
+    <script type="text/javascript" src="../app/scripts/controllers/listPlacesController.js"></script>
+    <script type="text/javascript" src="../app/scripts/controllers/viewPlaceController.js"></script>
+    <script type="text/javascript" src="../app/scripts/services/placesService.js"></script>
+
+    <script type="text/javascript" src="spec/services/placesServiceTest.js"></script>
+    <script type="text/javascript" src="spec/controllers/listPlacesControllerTest.js"></script>
+    <script type="text/javascript" src="spec/controllers/viewPlaceControllerTest.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+
+    var jasmineEnv = jasmine.getEnv();
+    var trivialReporter = new jasmine.TrivialReporter();
+
+    jasmineEnv.addReporter(trivialReporter);
+
+    jasmineEnv.specFilter = function (spec) {
+        return trivialReporter.specFilter(spec);
+    };
+
+    jasmineEnv.execute();
+
+</script>
+</body>
+</html>
+
+
