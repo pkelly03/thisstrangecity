@@ -1,33 +1,58 @@
 package com.thisstrangecity.persistence
 
-import com.mongodb.casbah.{MongoConnection, MongoClient}
 import com.mongodb.casbah.commons.MongoDBObject
-import com.mongodb.{MongoURI, Mongo, DBAddress}
-
+import com.mongodb._
+import casbah.MongoConnection
 
 class InitialRepository {
 
   def save() = {
-    //val addr = "mongodb://ds039437.mongolab.com:39437"
-    val mongo = new Mongo(new MongoURI("mongodb://thisstrangecity:thisstrangecity@ds039437.mongolab.com:39437"))
+
+    val placesMap = MongoDBObject( "Places"-> ("Piccadilly circus", "Green", "Paddington"))
+
+    //Working java driver implementation
+    /*
+    val mongoClient =  new MongoClient("ds053607.mongolab.com", 53607)
+    val db = mongoClient.getDB( "thisstrangecity" )
+    val password = "city"
+    db.authenticate("city", password.toCharArray)
+    val  collection = db.getCollection("places")
+
+    collection.save(placesMap)
+    */
+
+    // casbah mongodb driver implementation
+    val mongo = new Mongo(new MongoURI("mongodb://ds053607.mongolab.com:53607"))
     val mongoConnection = new MongoConnection(mongo)
+    val db = mongoConnection.getDB("thisstrangecity")
 
+    db.authenticate("city", "city")
 
-    //val mongoConnection = MongoConnection()
     val placesCollection = mongoConnection("thisstrangecity")("places")
-
-    val placesMap = MongoDBObject( "Places"-> ("Piccadilly", "Green", "Paddington"))
 
     placesCollection += placesMap
 
   }
 
-  def find():Map[String, Any] = {
+  def find() = {
 
-    val mongoConnection = MongoConnection()
-    val placesCollection = mongoConnection("unfiltered")("places")
-    placesCollection.findOne()
+    val mongo = new Mongo(new MongoURI("mongodb://ds053607.mongolab.com:53607"))
+    val mongoConnection = new MongoConnection(mongo)
+    val db = mongoConnection.getDB("thisstrangecity")
 
+    db.authenticate("city", "city")
+
+    val placesCollection = mongoConnection("thisstrangecity")("places")
+    val place =  placesCollection.find()
+    var places = List(Map)
+    print(place.size)
+    place.foreach{
+      case value =>
+        //places ::= value
+        print (value)
+    }
+
+    //places
     Map("Places"-> ("Piccadilly Circus", "Canary Warf", "Paddington"))
   }
 
