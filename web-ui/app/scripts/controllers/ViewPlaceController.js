@@ -1,5 +1,5 @@
 'use strict';
 
-app.controller('ViewPlaceController', function($scope, PlacesService) {
-    $scope.place = PlacesService.get($scope.id);
+app.controller('ViewPlaceController', function($scope, $routeParams, PlacesService) {
+    $scope.place = PlacesService.get({id:$routeParams.placeId});
 });

@@ -27,6 +27,6 @@ describe('Controller: ListPlacesController', function () {
     }));
 
     it('should make a call to PlacesService and copy value to coolPlacesList', inject(function (PlacesService) {
-        expect($scope.coolPlacesList.length).toEqual(2);
+        expect($scope.places.length).toEqual(2);
     }));
 });

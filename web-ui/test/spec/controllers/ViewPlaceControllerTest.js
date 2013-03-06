@@ -34,16 +34,17 @@ describe('Controller: ViewPlaceController', function () {
         expect(scope.place.location).toBe('Old St');
     }));
 
-    it('should make a call to placeService passing the place id', inject(function($controller, PlacesService) {
+    it('should make a call to placeService passing the place id', inject(function($controller, $routeParams, PlacesService) {
         var placeId = 'Look Mum No Hands';
         scope.id = placeId;
         mockPlacesService = PlacesService;
         spyOn(mockPlacesService, 'get');
 
         ViewPlaceController = $controller('ViewPlaceController', {
-            $scope:scope
+            $scope:scope,
+            $routeParams:{placeId:111}
         });
 
-        expect(mockPlacesService.get).toHaveBeenCalledWith(placeId);
+        expect(mockPlacesService.get).toHaveBeenCalledWith({id:111});
     }));
 });
