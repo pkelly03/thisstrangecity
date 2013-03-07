@@ -29,6 +29,9 @@ class SeleniumWebdriver extends FlatSpec with ShouldMatchers {
       driver.get(baseURL)
 
     } else {
+
+     System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver")
+
     driver = new ChromeDriver()
     driver.get(baseURL)
 
