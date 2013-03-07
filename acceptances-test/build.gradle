@@ -14,15 +14,42 @@ task functionalTest(type: Test) {
 
     useTestNG {
 
-        suiteXmlBuilder().suite(name: 'web-ui-functional-tests') {
+        suiteXmlBuilder().suite(name: 'functional-tests') {
+
+            if(browser()) {
+                parameter(name: "browser" , value: browser())
+            }
+
+            if (baseUrl()) {
+                doFirst {
+                    println("\tRunning acceptance tests against: ${baseUrl()}")
+                }
+                parameter(name: "baseURL", value: baseUrl())
+            } else {
+                doFirst {
+                    println("\tRunning acceptance tests against local environment")
+                }
+            }
+
+
 
             test(name: "all") {
                 packages {
                     'package'(name: 'com.thisstrangecity.webui.functionalTests.*')
                 }
-                excludeGroups groupsToExclude
             }
 
         }
     }
 }
+
+
+def String browser() {
+    System.getProperty('browser')
+}
+
+
+def String baseUrl() {
+    System.getProperty('baseUrl')
+}
+
