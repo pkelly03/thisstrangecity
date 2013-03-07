@@ -1,3 +1,4 @@
 include "web-ui"
 include "rest"
+include "unfiltered-rest"
 include "acceptances-test"
