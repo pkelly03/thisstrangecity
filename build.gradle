@@ -2,6 +2,9 @@ apply plugin: 'java'
 apply from: 'external-dependencies.gradle'
 apply from: 'ide-support.gradle'
 apply plugin: 'idea-scala-project'
+apply from: rootProject.file('deployment-support.gradle')
+apply plugin: 'war'
+
 
 allprojects {
     repositories {
@@ -21,6 +24,11 @@ buildscript {
     }
 }
 
+war {
+    from 'unfiltered-rest/src'
+    from 'web-ui/dist'  
+}
+
 dependencies {
     scalaTools scala.compiler, scala.library
     scalaApi scala.library
@@ -28,5 +36,5 @@ dependencies {
 
 task everything(type: GradleBuild) {
     description = 'Build Everything'
-    tasks = ['build', 'jstest', 'localDeploy']
+    tasks = ['build', 'uiBuild', 'war', 'localDeploy']
 }

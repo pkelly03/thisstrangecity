@@ -5,3 +5,7 @@ task jstest(type: Exec) {
 task server(type: Exec) {
   commandLine 'grunt', 'server'
 }
+
+task uiBuild(type: Exec) {
+    commandLine 'grunt'
+}

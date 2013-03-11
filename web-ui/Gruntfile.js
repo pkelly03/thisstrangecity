@@ -196,11 +196,18 @@ module.exports = function (grunt) {
             '*.{ico,txt}',
             '.htaccess'
           ]
+        },
+        {
+          src: ['components/**'], dest: '<%= yeoman.dist %>/'
+        },
+        {
+          expand: true, flatten: true, src: ['<%= yeoman.app %>/views/**'], dest: '<%= yeoman.dist %>/views/'
         }]
       }
     }
   });
 
+ 
   grunt.renameTask('regarde', 'watch');
   // remove when mincss task is renamed
   grunt.renameTask('mincss', 'cssmin');
