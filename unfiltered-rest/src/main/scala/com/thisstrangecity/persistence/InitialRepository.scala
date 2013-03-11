@@ -22,7 +22,7 @@ class InitialRepository {
     */
 
     // casbah mongodb driver implementation
-    val mongo = new Mongo(new MongoURI("mongodb://ds053607.mongolab.com:53607"))
+    val mongo = new Mongo(new MongoURI("mongodb://ds053597.mongolab.com:53597"))
     val mongoConnection = new MongoConnection(mongo)
     val db = mongoConnection.getDB("thisstrangecity")
 
@@ -36,7 +36,7 @@ class InitialRepository {
 
   def find() = {
 
-    val mongo = new Mongo(new MongoURI("mongodb://ds053607.mongolab.com:53607"))
+    val mongo = new Mongo(new MongoURI("mongodb://ds053597.mongolab.com:53597"))
     val mongoConnection = new MongoConnection(mongo)
     val db = mongoConnection.getDB("thisstrangecity")
 
