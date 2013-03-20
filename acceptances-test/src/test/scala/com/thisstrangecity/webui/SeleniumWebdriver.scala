@@ -1,14 +1,12 @@
 package com.thisstrangecity.webui
 
-import org.scalatest.FlatSpec
-import org.scalatest.matchers.ShouldMatchers
 import org.testng.annotations._
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.{WebDriver, By}
 import org.openqa.selenium.chrome.ChromeDriver
 
 
-class SeleniumWebdriver extends FlatSpec with ShouldMatchers {
+class SeleniumWebdriver {
 
 
   var baseURL : String = _
