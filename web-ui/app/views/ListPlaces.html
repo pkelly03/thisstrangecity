@@ -9,8 +9,22 @@
 
     <tr ng-repeat="place in places">
         <td><a href="#/places/{{place._id.$oid}}">{{place.name}}</a></td>
-        <td>{{placelace..location}}</td>
+        <td>{{place.location}}</td>
     </tr>
     </tbody>
 </table>
+<p>Your current Location is</p><br/>
+<table>
+    <tr>
+        <th id="out">latitude</th>
+        <td>{{currentLocation.lat}}</td>
+    </tr>
+    <tr>
+        <th>longitude</th>
+        <td>{{currentLocation.lon}}</td>
+    </tr>
+</table>
+
+
+
 
