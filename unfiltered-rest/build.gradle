@@ -1,5 +1,7 @@
 apply plugin: 'scala'
 apply plugin: 'idea-scala-facet'
+apply plugin: 'war'
+apply from: rootProject.file('deployment-support.gradle')
 
 dependencies {
     scalaApi scala.library
